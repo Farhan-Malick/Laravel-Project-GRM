@@ -1,0 +1,3 @@
+[16-Jan-2022 08:25:29 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in C:\xampp\htdocs\GRM\vendor\laravel\framework\src\Illuminate\Collections\Collection.php on line 870
+[16-Jan-2022 08:25:29 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 49152 bytes) in C:\xampp\htdocs\GRM\vendor\filp\whoops\src\Whoops\Exception\Frame.php on line 123
+[16-Jan-2022 08:27:04 UTC] PHP Fatal error:  Out of memory (allocated 7887388672) (tried to allocate 20480 bytes) in C:\xampp\htdocs\GRM\vendor\laravel\framework\src\Illuminate\Collections\Collection.php on line 873
