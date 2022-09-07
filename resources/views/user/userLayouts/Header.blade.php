@@ -1,227 +1,397 @@
-    @foreach ($header as $headers)
-        <div class="header mb-3"
-            style="background-image: url('{{ asset('storage/app/public/post/home/background/' . $headers->image) }}');">
-    @endforeach
-    <div class="container ">
-        {{-- navbar starts --}}
-        <nav class="navbar navbar-expand-lg navbar-dark pt-4">
-            <a class="navbar-brand d-flex" href="{{ URL('/') }}">
-                <img src="public/assets/images/GRMLogoFinal2.png" class="logo" alt="">
-                <div class="span-div ml-5">
-                    <p>GLOBAL</p>
-                    <p>RECYCLING</p>
-                    <p>MARKET</p>
-                </div>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ URL('/') }}">Home <span
-                                class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item dropdown ">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-expanded="false">
-                            Company
-                        </a>
-                        <div class="dropdown-menu nav-drop " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-light" href="{{ URL('/About-Us') }}">About Us</a>
-                            <a class="dropdown-item text-light" href="{{ URL('/Why-Use-GRM') }}">Why Use GRM</a>
-                        </div>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="{{ URL('/Affliations&Memberships') }}">Affliations &
-                            Memberships</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="{{ URL('/Industry-News') }}">News </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="{{ URL('/Blog') }}">Blog </a>
-                    </li>
+@foreach ($header as $headers)
+    <div class="header mb-3"
+        style="background-image: url('{{ asset('storage/app/public/post/home/background/' . $headers->image) }}');">
+@endforeach
+<div class="container ">
+    {{-- navbar starts --}}
+    <nav class="navbar navbar-expand-lg navbar-dark pt-4">
+        <a class="navbar-brand d-flex" href="{{ URL('/') }}">
+            <img src="public/assets/images/GRMLogoFinal2.png" class="logo" alt="">
+            <div class="span-div ml-2">
+                <p>GLOBAL</p>
+                <p>RECYCLING</p>
+                <p>MARKET</p>
+            </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ URL('/') }}">Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-expanded="false">
+                        Company
+                    </a>
+                    <div class="dropdown-menu nav-drop " aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-light" href="{{ URL('/About-Us') }}">About Us</a>
+                        <a class="dropdown-item text-light" href="{{ URL('/Why-Use-GRM') }}">Why Use GRM</a>
+                    </div>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ URL('/Affliations&Memberships') }}">Affliations/Memberships</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ URL('/Industry-News') }}">News </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ URL('/Blog') }}">Blog </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-expanded="false">
+                        Knowledge Center
+                    </a>
+                    <div class="dropdown-menu nav-drop" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-light" href="{{ URL('/Waste-RKC') }}">Waste Regulation
+                            Knowledge Center</a>
+                        <a class="dropdown-item text-light" href="{{ URL('/Recycling-KC') }}">Recycling
+                            Knowledge
+                            Center</a>
+                    </div>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ URL('/Contact-Us') }}">Contact </a>
+                </li>
+                @if (Auth::check())
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-expanded="false">
-                            Knowledge Center
+                            NOTIFICATIONS <span class="badge ml-1 border 1px"
+                                style="font-size: 12px; border-radius:20px">{{ count(auth()->user()->unreadNotifications) }}</span>
                         </a>
                         <div class="dropdown-menu nav-drop" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-light" href="{{ URL('/Waste-RKC') }}">Waste Regulation
-                                Knowledge Center</a>
-                            <a class="dropdown-item text-light" href="{{ URL('/Recycling-KC') }}">Recycling
-                                Knowledge
-                                Center</a>
-                        </div>
+                            <div class="dropdown-header text-light " style="font-size: 14px">ALL NOTIFICATIONS</div>
+                            @foreach (auth()->user()->unreadNotifications as $notification)
+                                <h6><a class="text-light " style="text-decoration: none; font-size:10px " href="#">
+                                        <p class="pl-2"><i
+                                                class="fa fa-envelope media-object bg-silver-darker mr-3"></i>You
+                                            have
+                                            commented on a post</p>
+                                    </a>
+                                </h6>
+                            @endforeach
                     </li>
+                @endif
+                @if (Auth::check())
+                    @auth
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-expanded="false">
+                                <span class="border 1px username">Hi</span>
+                                <span class=" ">{{ Auth::user()->name }}
+                                    {{ Auth::user()->lname }}</span>
+                            </a>
+                            <div class="dropdown-menu nav-drop" aria-labelledby="navbarDropdown">
+                                {{-- @foreach ($membership as $item) --}}
+                                @foreach ($membership as $item)
+                                    @if ($item->industry != null)
+                                        <a class="dropdown-item text-light" href="{{ URL('/Industry-Profile') }}">My
+                                            Industry</a>
+                                    @elseif(!Auth::user()->id || $item->type == null || $item->type == 'Buyer/Seller')
+                                        <a class="dropdown-item text-light" href="{{ URL('/Company-Profile') }}">My
+                                            Profile</a>
+                                    @endif
+                                @endforeach
+                                <a class="dropdown-item text-light" href="{{ URL('/GeneralStore') }}">Listings
+                                </a>
+                                <a class="dropdown-item text-light" href="{{ URL('/RequestStore') }}">Requests
+                                </a>
+                                <a class="dropdown-item text-light" href="{{ URL('/TendersStore') }}">Tenders</a>
+                                <a class="dropdown-item text-light" href="{{ URL('/Services-Store') }}">Service
+                                    Providers</a>
+                                <a class="dropdown-item text-light" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
+                                    @csrf
+                                </form>
+                                {{-- <a class="dropdown-item text-light" href="{{ URL('/Recycling-KC') }}">Recycling Knowledge
+                                Center</a> --}}
+                            </div>
+                            {{-- @endif --}}
+                        </li>
+                    @endauth
+                @else
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{ URL('/Contact-Us') }}">Contact </a>
+                        <a href="{{ route('login') }}" data-toggle="modal" data-target="#Login"
+                            class="btn btn-success px-3">Log in</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="btn btn-success px-3 text-white" href="" type="button" data-toggle="modal"
-                            data-target="#Login">LOGIN</a>
-                    </li>
-                    {{-- <li class="nav-item ">
-                    <a class="btn btn-success px-3" href="" type="button" data-toggle="modal"
-                        data-target="#register">REGISTER</a>
-                </li> --}}
-                </ul>
-            </div>
-        </nav>
-        {{-- navbarEnds --}}
-    </div>
-    <hr style="border: 1px solid rgba(255, 255, 255, 0.25);">
-    @foreach ($header as $headers)
-        <div class="container container1 Banner_ImgTxt">
-            <div class="row head_row text-light  ">
-                <div class="col-md-6 div1">
-                    <div class="col-md-12 d-flex ">
-                        <h1 class=" banner-text ">
-                            {{ $headers->heading }}</h1>
-                    </div>
-                    <br>
-                    <div class="col-md-12">
-                        <p class="banner-para-text ">{{ $headers->title }}</p>
-                        <a class="btn btn-success banner-btn px-3" href="" type="button" data-toggle="modal"
-                            data-target="#register">Join GRM</a>
-                    </div>
-                </div>
-                <div class="col-md-6 ">
-                    <div class="header__img banner-img ">
-                        <img src="{{ asset('storage/app/public/post/home/BannerImage/' . $headers->image2) }}"
-                            height="400px" width="400px" class="head-2 img-fluid " alt="">
-                    </div>
-                </div>
-            </div>
+                @endif
+
+            </ul>
         </div>
-    @endforeach
+    </nav>
+    {{-- navbarEnds --}}
+</div>
+
+<hr style="border: 1px solid rgba(255, 255, 255, 0.25);">
+<div class="container">
+    <div class="row">
+        @if (Session::has('Message'))
+            <div class="col-sm-12 text-dark alert alert-danger" style="text-align: center; ">
+                <h6>{{ session('Message') }}</h6>
+            </div>
+        @endif
     </div>
-    <!-- LOGIN MODAL -->
-    <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="col-1"></div>
-                    <div class="col-10 text-center">
-                        <img src="public/assets/images/register.svg" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-1 ">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
+</div>
+@foreach ($header as $headers)
+    <div class="container container1 Banner_ImgTxt">
+        <div class="row head_row text-light  ">
+            <div class="col-md-6 div1">
+                <div class="col-md-12 d-flex ">
+                    <h1 class=" banner-text ">
+                        {{ $headers->heading }}</h1>
                 </div>
-                <div class="modal-body px-4">
-                    <form action="" method="" id="">
-                        <div class="control-group form-group m-2 ">
-                            <div class="">
-                                <label for="" class="p-0 m-0 ">Email :</label>
-                                <input
-                                    class="input--style-1 input-group
-                            input-group input-contact"
-                                    type="email" placeholder="Enter Your Email Address" name="name">
-                            </div>
-                        </div>
-                        <div class="control-group form-group m-2 ">
-                            <div class="">
-                                <label for="" class="p-0 m-0 ">Password :</label>
-                                <input
-                                    class="input--style-1 input-group
-                            input-group input-contact"
-                                    type="password" placeholder="Enter Your Password" name="password">
-                            </div>
-                        </div>
-                        <div class="form-check m-2 ">
-                            <input class="form-check-input" id="checkbox-id" type="checkbox" value=""
-                                id="flexCheckDefault" />
-                            <label class="form-check-label text-right" for="flexCheckDefault">Remember password</label>
-                        </div>
-
-                        <div class=" form-group m-2">
-                            <a href="{{ URL('/Home') }}" type="submit" name="insert" id="insert" value=""
-                                class="btn btn-success w-100">Login Here</a>
-                        </div>
-                        <div class=" form-group m-2">
-                            <span class="reg_para"> Don' t have GRM account ?</span> <a href="" type="button"
-                                data-toggle="modal" data-target="#register" class="text-success">Sign-up</a>
-                            <p><a href="" class="text-success">Forget password ?</a></p>
-                        </div>
-                    </form>
+                <br>
+                <div class="col-md-12">
+                    <p class="banner-para-text ">{{ $headers->title }}</p>
+                    @if (Auth::check())
+                        @auth
+                            <a class="btn btn-success reg_para px-3" style="border-radius:40px" href="" type="button"
+                                data-toggle="modal" data-target="#alreadyregister">Join GRM</a>
+                        @endif
+                    @else
+                        <a class="btn btn-success reg_para px-3" style="border-radius:40px"
+                            href="{{ route('register') }}" type="button" data-toggle="modal" data-target="#register">Join
+                            GRM</a>
+                    @endauth
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <div class="header__img banner-img ">
+                    <img src="{{ asset('storage/app/public/post/home/BannerImage/' . $headers->image2) }}"
+                        height="400px" width="400px" class="head-2 img-fluid " alt="">
                 </div>
             </div>
         </div>
     </div>
-    {{-- Login modal ends here --}}
-    {{-- Register Modal --}}
-    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="col-1"></div>
-                    <div class="col-10 text-center">
-                        <img src="public/assets/images/register.svg" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-1 ">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
+@endforeach
+</div>
+<!-- LOGIN MODAL -->
+<div class="modal fade" id="Login" {{ session(['name' => 'data']) }} tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-1"></div>
+                <div class="col-10 text-center">
+                    <img src="public/assets/images/register.svg" alt="" class="img-fluid">
                 </div>
-                <div class="modal-body px-4">
-                    <form action="" method="" id="">
-                        <div class="form-row m-2 ">
-                            <div class="form-group  col-md-6">
-                                <input type=" text" class="form-control input-group input--style-1 input-contact"
-                                    name="fname" require placeholder="Enter First Name" required>
-                            </div>
-
-                            <div class="form-group  col-md-6 ">
-                                <input type="text" class="form-control input-group input--style-1 input-contact"
-                                    name="lname" require placeholder="Enter Last Name" required>
-                            </div>
-                        </div>
-                        <div class="form-row m-2">
-                            <div class="form-group  col-md-6 ">
-                                <input type="text" class="form-control input-group input--style-1 input-contact"
-                                    name="cname" require placeholder="Enter Company" required>
-                            </div>
-
-                            <div class="form-group  col-md-6 ">
-                                <input type="email" class="form-control input-group input--style-1 input-contact"
-                                    name="bemail" require placeholder="Enter Business email" required>
-                            </div>
-                        </div>
-                        <div class="form-row m-2">
-                            <div class="form-group  col-md-6 ">
-                                <input type="password" class="form-control input-group input--style-1 input-contact"
-                                    name="password" require placeholder="Enter password" required>
-                            </div>
-
-                            <div class="form-group   col-md-6 ">
-                                <input type="password" class="form-control input-group input--style-1 input-contact"
-                                    name="confirm_password" require placeholder="Re-Enter password" required>
-                            </div>
-                        </div>
-
-                        <div class=" form-row col-12">
-                            <a href="{{ URL('Memberships') }}" type="submit" name="insert" id="insert"
-                                value="Register Here" class="btn btn-success w-100">Register Here</a>
-                        </div>
-                        <div class="form-row col-12 mt-3 ml-4 text-center">
-                            <p class="reg-modal">By joining GRM you agree to GRM <u>Terms and Conditions of
-                                    Use.</u><br>
-                                Already have Scrapo account? <a href="" type="button" data-toggle="modal"
-                                    data-target="#Login" class="text-success"> Log-in </a></p>
-                        </div>
-                    </form>
+                <div class="col-1 ">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+            </div>
+            <div class="modal-body px-4">
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <div class="control-group form-group m-2 ">
+                        <div class="">
+
+                            <input
+                                class="input--style-1 input-group
+                                 input-group input-contact @error('email') is-invalid @enderror"
+                                type="email" id="email" placeholder="Enter Your Email Address" name="email"
+                                value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="control-group form-group m-2 ">
+                        <div class="">
+
+                            <input
+                                class="input--style-1 input-group
+                              input-group input-contact @error('password') is-invalid @enderror"
+                                type="password" id="password" placeholder="Enter Your Password" name="password"
+                                value="{{ old('password') }}" required autocomplete="password" autofocus>
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-check m-2 ">
+                        <input class="form-check-input" id="checkbox-id" type="checkbox" value=""
+                            id="flexCheckDefault" />
+                        <label class="form-check-label text-right" for="flexCheckDefault">Remember password</label>
+                    </div>
+                    <div class="row mb-0">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-success w-100">
+                                {{ __('Login Here') }}
+                            </button>
+                        </div>
+                    </div>
+                    <div class=" form-group m-2">
+                        <span class="reg_para"> Don' t have GRM account ?</span> <a href="" type="button"
+                            id="anchor" data-toggle="modal" data-target="#register" class="text-success">Sign-up</a>
+                        {{-- <p><a href="" class="text-success">Forget password ?</a></p> --}}
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    {{-- Register MOdal Ends Here --}}
+</div>
+{{-- Login modal ends here --}}
+{{-- Register Modal --}}
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-1"></div>
+                <div class="col-10 text-center">
+                    <img src="public/assets/images/register.svg" alt="" class="img-fluid">
+                </div>
+                <div class="col-1">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body px-4">
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <div class="row mb-3">
+
+                        <div class="col-md-6">
+                            <input id="name" type="text"
+                                class="input--style-1  input-group input-contact @error('name') is-invalid @enderror"
+                                name="name" value="{{ old('name') }}" placeholder="Enter Your First Name" required
+                                autocomplete="name" autofocus>
+
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <input id="lname" type="text"
+                                class="input--style-1  input-group input-contact @error('lname') is-invalid @enderror"
+                                name="lname" value="{{ old('lname') }}" placeholder="Enter Your Last Name" required
+                                autocomplete="lname" autofocus>
+
+                            @error('lname')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <input id="cname" type="text"
+                                class="input--style-1  input-group input-contact @error('cname') is-invalid @enderror"
+                                name="cname" value="{{ old('cname') }}" placeholder="Enter Your Company Name"
+                                required autocomplete="cname" autofocus>
+
+                            @error('cname')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <input id="email" type="email"
+                                class="input--style-1  input-group input-contact @error('email') is-invalid @enderror"
+                                name="email" value="{{ old('email') }}" placeholder="Enter Your Email" required
+                                autocomplete="email">
+
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <input id="password" type="password"
+                                class="input--style-1  input-group input-contact @error('password') is-invalid @enderror"
+                                name="password" required autocomplete="new-password" placeholder="Enter Password">
+
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <input id="password-confirm" type="password"
+                                class="input--style-1  input-group input-contact" placeholder="Re-Enter Password"
+                                name="password_confirmation" required autocomplete="new-password">
+                        </div>
+                    </div>
+                    <div class="row mb-0">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-success w-100">
+                                {{ __('Register') }}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-row col-12 mt-3 ml-4 text-center">
+                        <p class="reg-modal">By joining GRM you agree to GRM <u>Terms and Conditions of
+                                Use.</u><br>
+                            {{-- Already have Scrapo account? <a href="" type="button" data-toggle="modal"
+                                data-target="#Login" class="text-success"> Log-in </a> --}}
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="alreadyregister" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-1"></div>
+                <div class="col-10 text-center">
+                    <img src="public/assets/images/register.svg" alt="" class="img-fluid">
+                </div>
+                <div class="col-1">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body px-4">
+                <form>
+                    @csrf
+
+                    <div class="row mb-3">
+
+                        <div class="col-md-12">
+                            <h5 class=" text-center">You Are Already Registered</h5>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- Register MOdal Ends Here --}}
+<script>
+    @error('email')
+        $('#Login').modal('show');
+    @enderror
+</script>

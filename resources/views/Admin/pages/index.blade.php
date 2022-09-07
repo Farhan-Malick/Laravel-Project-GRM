@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <title>GRM | Admin</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
-
-    @include('Admin.layouts.headlinks')
-</head>
+@include('Admin.layouts.headlinks')
 
 <body>
     <!-- begin #page-loader -->

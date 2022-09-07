@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Session;
+use Auth;
 class CustomAuth
 {
     /**
@@ -16,13 +17,15 @@ class CustomAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        $path=$request->path();
-        // echo $path;
-        if(($path=="admin" || $path=="register") && (Session::get('admin')))
+        // $path=$request->path();
+        if(!$request->session()->has('BLOG_USER_ID'))
         {
-            return redirect('/Adminpanel');
+            return redirect('/admin');
         }
-        
+        // if (($path=="admin" )&&(session()->has('BLOG_USER_ID'))) {
+        //     return redirect('/AdminIndex');
+        // }
+       
         return $next($request);
     }
 }

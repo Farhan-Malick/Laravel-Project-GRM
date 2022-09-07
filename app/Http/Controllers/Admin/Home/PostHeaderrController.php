@@ -26,7 +26,7 @@ class PostHeaderrController extends Controller
         $request->validate([
           'heading'        => 'required |max:30',
           'title'        => 'required |max:80',
-          'image'  =>  'required |mimes: png,svg,jpg,jpeg,png',
+          'image'       =>  'required |mimes: png,svg,jpg,jpeg,png',
           'image2'        =>  'required |mimes: png,svg,jpg,jpeg,png',
           Rule::dimensions()->maxWidth(1920)->maxHeight(500)->ratio(3 / 2),
         ]);

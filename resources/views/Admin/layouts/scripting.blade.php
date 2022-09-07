@@ -17,4 +17,3 @@
 <script src="{{ asset('Raw/admin/assets/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}">
 </script>
 <script src="{{ asset('Raw/admin/assets/js/demo/table-manage-default.demo.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>

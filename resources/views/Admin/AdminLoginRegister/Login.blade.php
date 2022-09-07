@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> Haffez Admin | Login</title>
+    <title> GRM Admin | Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -50,7 +50,7 @@
                         Email
                     </span>
                     <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
-                        <input class="input100" type="text" name="email" required>
+                        <input class="input100" type="email" name="email" required>
                         <span class="focus-input100"></span>
                     </div>
 
@@ -79,9 +79,10 @@
                             </a>
                         </div>
                     </div>
-                    @error('failed')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    @if (Session::has('msg'))
+                        <div class="col-sm-12 text-dark alert alert-danger" style="text-align: center; ">
+                            {{ session('msg') }}</div>
+                    @endif
                     <div class="container-login100-form-btn">
                         <button class="login100-form-btn">
                             Login

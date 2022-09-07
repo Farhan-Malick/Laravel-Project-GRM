@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <title>Color Admin | Page with Light Sidebar</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
-
-    @include('Admin.layouts.headlinks')
-</head>
+@include('Admin.layouts.headlinks')
 
 <body>
     <!-- begin #page-loader -->
@@ -55,15 +46,6 @@
                                         <a class="btn btn-success" href="{{ route('/Admin/header-Add') }}">Add
                                             Post</a>
                                     </div>
-                                    @if (session('Teacherupdated'))
-                                        <div class="col-sm-6 mx-auto " style="text-align: center; font-size:20px">
-                                            {{ session('Teacherupdated') }}</div>
-                                    @endif
-                                    @if (session('TeacherDeleted'))
-                                        <div class="col-sm-6 mx-auto "
-                                            style="text-align: center; color:red; font-size:20px">
-                                            {{ session('TeacherDeleted') }}</div>
-                                    @endif
                                     @if (session('msg'))
                                         <div class="col-sm-6 mx-auto " style="text-align: center;  font-size:20px">
                                             {{ session('msg') }}</div>

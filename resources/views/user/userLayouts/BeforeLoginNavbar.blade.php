@@ -148,7 +148,7 @@
                     <div class="form-row m-2 ">
                         <div class="form-group  col-md-6">
                             <input type=" text" class="form-control input-group input--style-1 input-contact"
-                                name="fname" require placeholder="Enter First Name" required>
+                                name="name" require placeholder="Enter First Name" required>
                         </div>
 
                         <div class="form-group  col-md-6 ">

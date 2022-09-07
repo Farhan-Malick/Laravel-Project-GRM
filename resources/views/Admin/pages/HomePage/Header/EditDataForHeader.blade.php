@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <title>Color Admin | Page with Light Sidebar</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
-
-    @include('ADmin.layouts.headlinks')
-</head>
+@include('Admin.layouts.headlinks')
 
 <body>
     <!-- begin #page-loader -->
@@ -93,34 +84,44 @@
                                                         <span>{{ $message }}</span>
                                                     @enderror
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group col-6">
                                                     <label for="exampleInputFile"><b>Background-Image</b> </label>
+
                                                     <div class="input-group">
+                                                        <img class=""
+                                                            src="{{ asset('storage/app/public/post/home/background/' . $header->image) }}"
+                                                            width="80px" alt="" height="35px">
                                                         <div class="custom-file">
+
                                                             <input type="file" name="image" class="custom-file-input"
-                                                                value="{{ $header['image'] }}" id="exampleInputFile">
+                                                                id="exampleInputFile">
                                                             <label class="custom-file-label"
                                                                 for="exampleInputFile">Choose file</label>
                                                         </div>
                                                         <div class="input-group-append">
-                                                            <span class="input-group-text">Upload</span>
+                                                            <span class="input-group-text ml-2">Upload</span>
                                                         </div>
                                                     </div>
                                                     @error('image')
                                                         <span>{{ $message }}</span>
                                                     @enderror
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group col-6">
                                                     <label for="exampleInputFile"><b>Image </b></label>
                                                     <div class="input-group">
+                                                        <img class=""
+                                                            src="{{ asset('storage/app/public/post/home/LA/' . $header->image2) }}"
+                                                            width="80px" alt="" height="35px">
+
                                                         <div class="custom-file">
+
                                                             <input type="file" name="image2" class="custom-file-input"
-                                                                value="{{ $header['image2'] }}" id="exampleInputFile">
+                                                                id="exampleInputFile">
                                                             <label class="custom-file-label"
                                                                 for="exampleInputFile">Choose file</label>
                                                         </div>
                                                         <div class="input-group-append">
-                                                            <span class="input-group-text">Upload</span>
+                                                            <span class="input-group-text ml-2">Upload</span>
                                                         </div>
                                                     </div>
                                                     @error('image2')

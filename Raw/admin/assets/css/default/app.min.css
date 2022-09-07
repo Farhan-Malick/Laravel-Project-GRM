@@ -42037,7 +42037,8 @@ html .nvd3 .nv-legend-symbol {
     transition: opacity 1s
 }
 
-.pace .pace-progress {
+
+/* .pace .pace-progress {
     top: 50px;
     height: 3px;
     background: #00acac;
@@ -42046,7 +42047,7 @@ html .nvd3 .nv-legend-symbol {
     -ms-transition: all .2s linear;
     -o-transition: all .2s linear;
     transition: all .2s linear
-}
+} */
 
 @media (max-width:767.98px) {
     .pace .pace-progress {

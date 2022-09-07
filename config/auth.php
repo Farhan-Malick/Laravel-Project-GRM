@@ -40,10 +40,9 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'admin' => [
+        'adminlogin' => [
             'driver' => 'session',
-            'provider' => 'users',
-            'hash' => false,
+            'provider' => 'adminlogins',
         ],
     ],
 
@@ -70,10 +69,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'adminlogins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\AdminRegister::class,
+        ],
     ],
 
     /*

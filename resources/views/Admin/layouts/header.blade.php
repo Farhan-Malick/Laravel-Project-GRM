@@ -84,12 +84,11 @@
                 </div>
             </div>
         </li>
-
         <li class="dropdown navbar-user">
-            @if (Session::get('admin'))
+            @if (Session::get('email'))
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="{{ asset('Raw/admin/assets/img/user/user-13.jpg') }}" alt="" />
-                    <span class="d-none d-md-inline">Welcome | {{ Session::get('admin') }}</span> <b
+                    <span class="d-none d-md-inline">Welcome | {{ Session::get('email') }}</span> <b
                         class="caret"></b>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">

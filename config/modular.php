@@ -13,7 +13,6 @@ return [
     "https"    => false,
     "modules"  => [
         "comments" => true,
-        "admin" => true
     ]
 ];
 

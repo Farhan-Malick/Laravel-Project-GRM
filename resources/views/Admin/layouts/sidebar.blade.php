@@ -27,55 +27,103 @@
         <!-- begin sidebar nav -->
         <ul class="nav">
             <li class="nav-header">Navigation</li>
-            {{-- <li class="has-sub active">
+            <li class="has-sub active">
                 <a href="javascript:;">
                     <b class="caret"></b>
                     <i class="fa fa-th-large"></i>
-                    <span>Dashboard</span>
+                    <span>HANDLE USER</span>
                 </a>
+            </li>
+
+            <li class="has-sub active">
                 <ul class="sub-menu">
-                    <li><a href="index.html">Dashboard v1</a></li>
-                    <li><a href="index_v2.html">Dashboard v2</a></li>
-                    <li class="active"><a href="index_v3.html">Dashboard v3</a></li>
-                </ul>
-            </li> --}}
-            {{-- <li class="has-sub active">
-                <a href="javascript:;">
-                    <b class="caret"></b>
-                    <i class="fa fa-th-large"></i>
-                    <span>HANDLE CLIENT SITE</span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret"></b> Home
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="index.html">Header Section</a></li>
-                            <li><a href="index_v2.html">Product Section</a></li>
-                            <li class=""><a href="index_v3.html">Services Section</a></li>
-                            <li><a href="index.html">Tenders Section</a></li>
-                            <li><a href="index_v2.html">WASTE REGULATIONS Section</a></li>
-                            <li class=""><a href="index_v3.html">LATEST ARTICLES Section</a></li>
-                        </ul>
+                    <a href="#">
+                        <h6 class="mt-1 text-white">Category Section</h6>
+                    </a>
+                    <li><a href="{{ URL('/Admin/Category-List') }}">Category</a></li>
+                    <li>
+                        <a href="{{ URL('/Admin/Request_Category-List') }}">
+                            <b class=""></b>
+                            <i class=""></i>
+                            <span>Category For Requested Product</span>
+                    </li>
+                    <a href="#">
+                        <h6 class="mt-1 text-white">Service Providers Section</h6>
+                    </a>
+                    <li><a href="{{ URL('/Admin/Service') }}">Service Providers</a></li>
+                    <a href="#">
+                        <h6 class="mt-1 text-white">User Functionality</h6>
+                    </a>
+                    <li>
+                        <a href="{{ URL('/Admin/Users-Ad') }}">
+                            <b class=""></b>
+                            <i class=""></i>
+                            <span>Users Ad Detail</span>
+                    </li>
+                    <li>
+                        <a href="{{ URL('/Admin/User-Message') }}">
+                            <b class=""></b>
+                            <i class=""></i>
+                            <span>User's Message</span>
+                    </li>
+                    <li>
+                        <a href="{{ URL('/Admin/Membership-Form') }}">
+                            <b class=""></b>
+                            <i class=""></i>
+                            <span>Membership Form</span>
+                    </li>
+                    <li>
+                        <a href="{{ URL('/Admin/Tenders') }}">
+                            <b class=""></b>
+                            <i class=""></i>
+                            <span>Manage Tenders</span>
+                    </li>
+
+                    <a href="#">
+                        <h6 class="mt-1 text-white">My Profile Section</h6>
+                    </a>
+
+                    <li>
+                        <a href="{{ URL('/Admin/CompanyProfile') }}">
+                            <b class=""></b>
+                            <i class=""></i>
+                            <span>Company Profile</span>
+                    </li>
+                    <li>
+                        <a href="{{ URL('/Admin/Request') }}">
+                            <b class=""></b>
+                            <i class=""></i>
+                            <span>Request</span>
+                    </li>
+                    <li>
+                        <a href="{{ URL('/Admin/Document') }}">
+                            <b class=""></b>
+                            <i class=""></i>
+                            <span>Documents</span>
+                    </li>
+                    <li>
+                        <a href="{{ URL('/Admin/Media') }}">
+                            <b class=""></b>
+                            <i class=""></i>
+                            <span>Media</span>
+                    </li>
+                    <a href="#">
+                        <h6 class="mt-1 text-white">Waste Regulations Entries</h6>
+                    </a>
+                    <li>
+                        <a href="{{ URL('/Waste-RKC-Countries') }}">
+                            <b class=""></b>
+                            <i class=""></i>
+                            <span>Waste-Regulations Countries</span>
+                    </li>
+                    <li>
+                        <a href="{{ URL('/Admin/Waste-Regulations') }}">
+                            <b class=""></b>
+                            <i class=""></i>
+                            <span>Waste-Regulations</span>
                     </li>
                 </ul>
-                <ul class="sub-menu ">
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret"></b> About
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="index.html">Header Section</a></li>
-                            <li><a href="index_v2.html">Product Section</a></li>
-                            <li class=""><a href="index_v3.html">Services Section</a></li>
-                            <li><a href="index.html">Tenders Section</a></li>
-                            <li><a href="index_v2.html">WASTE REGULATIONS Section</a></li>
-                            <li class=""><a href="index_v3.html">LATEST ARTICLES Section</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li> --}}
+            </li>
             <li class="has-sub active">
                 <a href="javascript:;">
                     <b class="caret"></b>
@@ -91,15 +139,10 @@
                         </a>
                         <ul class="sub-menu">
                             <li><a href="{{ URL('/Admin/header') }}">Header Section</a></li>
-                            <li><a href="{{ URL('/Admin/product-List') }}">Product Section</a></li>
-                            <li class=""><a href="{{ URL('/Admin/view_product') }}">View Product
-                                    Section</a>
+                            <li class=""><a href="{{ URL('/Admin/Services') }}">Services Section</a>
                             </li>
-                            <li class=""><a href="{{ URL('/Admin/services') }}">Services Section</a>
-                            </li>
-                            <li><a href="{{ URL('/Admin/tenders') }}">Tenders Section</a></li>
-                            <li><a href="{{ URL('/Admin/waste_regulations') }}">WASTE REGULATIONS Section</a></li>
-                            <li class=""><a href="{{ URL('/Admin/latest_atricles') }}">LATEST ARTICLES
+                            <li><a href="{{ URL('/Admin/WasteRKC') }}">WASTE REGULATIONS Section</a></li>
+                            <li class=""><a href="{{ URL('/Admin/Latest-Article') }}">LATEST ARTICLES
                                     Section</a></li>
                         </ul>
                     </li>
@@ -112,9 +155,8 @@
                             <span>About Us</span>
                         </a>
                         <ul class="sub-menu">
-                            <li><a href="index.html">Content Section</a></li>
-                            <li><a href="index_v2.html">Content Section</a></li>
-                            <li class=""><a href="index_v3.html">Content Section</a></li>
+                            <li><a href="{{ URL('/Admin/AboutUsBanner') }}">About Us Banner</a></li>
+                            <li><a href="{{ URL('/Admin/About-Us-Section') }}">About Us Section</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -126,9 +168,19 @@
                             <span>Why Use GRM</span>
                         </a>
                         <ul class="sub-menu">
-                            <li><a href="index.html">Content Section</a></li>
-                            <li><a href="index_v2.html">Content Section</a></li>
-                            <li class=""><a href="index_v3.html">Content Section</a></li>
+                            <li><a href="{{ URL('/Admin/Why-Use-GRM') }}">Why-GRM</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="sub-menu">
+                    <li class="has-sub active">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="fa fa-th-large"></i>
+                            <span>Recycling Knowledge Center</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="{{ URL('/Admin/RecyclingKC') }}">RecyclingKC Section</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -192,20 +244,6 @@
                             <b class="caret"></b>
                             <i class="fa fa-th-large"></i>
                             <span>Waste Regulation Knowledge Center</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="index.html">Content Section</a></li>
-                            <li><a href="index_v2.html">Content Section</a></li>
-                            <li class=""><a href="index_v3.html">Content Section</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="sub-menu">
-                    <li class="has-sub active">
-                        <a href="javascript:;">
-                            <b class="caret"></b>
-                            <i class="fa fa-th-large"></i>
-                            <span>Recycling Knowledge Center</span>
                         </a>
                         <ul class="sub-menu">
                             <li><a href="index.html">Content Section</a></li>
@@ -313,7 +351,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="has-sub">
+            {{-- <li class="has-sub">
                 <a href="javascript:;">
                     <span class="badge pull-right">10</span>
                     <i class="fa fa-hdd"></i>
@@ -608,7 +646,7 @@
             </li>
             <!-- begin sidebar minify button -->
             <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i
-                        class="fa fa-angle-double-left"></i></a></li>
+                        class="fa fa-angle-double-left"></i></a></li> --}}
             <!-- end sidebar minify button -->
         </ul>
         <!-- end sidebar nav -->

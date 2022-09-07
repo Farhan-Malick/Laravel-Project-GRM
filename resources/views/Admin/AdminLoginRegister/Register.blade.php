@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> Haffez Admin | Login</title>
+    <title> GRM Admin | Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -40,7 +40,8 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-                <form class="login100-form validate-form flex-sb flex-w" action="register" method="post">
+                <form class="login100-form validate-form flex-sb flex-w" action="{{ URL('/admin/register') }}"
+                    method="post">
                     @csrf
                     <span class="login100-form-title p-b-32">
                         Admin Register
@@ -92,7 +93,7 @@
                     <div class="col-sm-12 text-dark" style="text-align: center; ">{{ session('success') }}</div>
                     <div class="container-login100-form-btn">
                         <button class="login100-form-btn">
-                            Login
+                            Register
                         </button>
                     </div>
 
